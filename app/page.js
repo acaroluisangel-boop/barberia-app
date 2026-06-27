@@ -17,19 +17,19 @@ export default function Home() {
     <p className="text-base sm:text-xl text-zinc-400 mb-10 max-w-md px-4">
     </p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">
-      <Link href="/reservar"
-        className="bg-yellow-400 text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all hover:scale-105">
-        Reservar cita →
-      </Link>
-      <a href="#servicios"
-        className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
-        Ver servicios
-        <Link href="/galeria"
-  className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
-  Ver cortes
-</Link>
-      </a>
-    </div>
+  <Link href="/reservar"
+    className="bg-yellow-400 text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all hover:scale-105">
+    Reservar cita →
+  </Link>
+  <a href="#servicios"
+    className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
+    Ver servicios
+  </a>
+  <Link href="/galeria"
+    className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
+    Ver cortes
+  </Link>
+</div>
   </div>
   <div className="absolute bottom-8 animate-bounce text-zinc-400 z-10">
     <ChevronDown size={32} />

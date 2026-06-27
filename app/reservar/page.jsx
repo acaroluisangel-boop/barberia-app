@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import BackButton from '@/app/components/BackButton';
 
 export default function Reservar() {
   const [servicios, setServicios] = useState([]);
@@ -75,6 +76,7 @@ export default function Reservar() {
 
   return (
     <main className="min-h-screen bg-black text-white flex items-center justify-center px-4">
+      <BackButton />
       <form onSubmit={handleSubmit} className="bg-zinc-900 p-8 rounded-2xl w-full max-w-md">
         <h1 className="text-3xl font-bold text-yellow-400 mb-6">Reservar cita</h1>
 

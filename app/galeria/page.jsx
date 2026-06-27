@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import BackButton from '@/app/components/BackButton';
 const fotos = [
   { src: '/fotos/foto1.jpeg', titulo: 'Mullet' },
   { src: '/fotos/foto2.jpeg', titulo: 'Taper Fade' },
@@ -13,6 +13,7 @@ const fotos = [
 export default function Galeria() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white px-8 py-16">
+        <BackButton />
       <div className="max-w-6xl mx-auto">
         <p className="text-yellow-400 text-sm font-semibold tracking-widest uppercase text-center mb-3">Nuestro trabajo</p>
         <h1 className="text-5xl font-black text-center mb-16">Galería de Cortes</h1>

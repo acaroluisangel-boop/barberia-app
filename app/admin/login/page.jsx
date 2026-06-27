@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
+import BackButton from '@/app/components/BackButton';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ export default function Login() {
 
   return (
     <main className="min-h-screen bg-black flex items-center justify-center">
+      <BackButton />
       <form onSubmit={handleLogin} className="bg-zinc-900 p-8 rounded-2xl w-full max-w-sm">
         <h1 className="text-2xl font-bold text-yellow-400 mb-6 text-center">Admin</h1>
         {error && <p className="text-red-400 mb-4 text-center">{error}</p>}

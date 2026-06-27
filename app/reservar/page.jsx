@@ -22,7 +22,6 @@ export default function Reservar() {
     setError('');
 
     try {
-      // 1. Buscar cliente existente
       let clienteId;
       const { data: clienteExistente } = await supabase
         .from('clientes')
@@ -33,40 +32,24 @@ export default function Reservar() {
       if (clienteExistente) {
         clienteId = clienteExistente.id;
       } else {
-        // 2. Crear cliente nuevo
         const { data: nuevoCliente, error: errorCliente } = await supabase
           .from('clientes')
           .insert({ nombre: form.nombre, email: form.email, telefono: form.telefono })
           .select('id')
           .single();
-
         if (errorCliente) throw new Error('Error al guardar cliente: ' + errorCliente.message);
         clienteId = nuevoCliente.id;
       }
 
-      // 3. Crear cita
-      const { data: cita, error: errorCita } = await supabase
+      const { error: errorCita } = await supabase
         .from('citas')
-        .insert({ cliente_id: clienteId, servicio_id: form.servicio_id, fecha_hora: form.fecha_hora })
+        .insert({ cliente_id: clienteId, servicio_id: form.servicio_id, fecha_hora: form.fecha_hora, estado: 'pendiente', pagado: false })
         .select('id')
         .single();
 
       if (errorCita) throw new Error('Error al crear cita: ' + errorCita.message);
 
-      // 4. Ir a Stripe
-      const servicio = servicios.find(s => s.id === form.servicio_id);
-      const res = await fetch('/api/stripe/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          servicioNombre: servicio.nombre,
-          precio: servicio.precio,
-          citaId: cita.id,
-        }),
-      });
-
-      const { url } = await res.json();
-      window.location.href = url;
+      window.location.href = '/confirmacion';
 
     } catch (err) {
       setError(err.message);
@@ -99,7 +82,7 @@ export default function Reservar() {
           className="w-full bg-zinc-800 rounded-lg px-4 py-3 mb-4 text-white">
           <option value="">Selecciona un servicio</option>
           {servicios.map(s => (
-            <option key={s.id} value={s.id}>{s.nombre} — ${s.precio}</option>
+            <option key={s.id} value={s.id}>{s.nombre} — S/{s.precio}</option>
           ))}
         </select>
 
@@ -109,7 +92,7 @@ export default function Reservar() {
 
         <button type="submit" disabled={cargando}
           className="w-full bg-yellow-400 text-black py-4 rounded-full font-bold text-lg hover:bg-yellow-300 disabled:opacity-50">
-          {cargando ? 'Procesando...' : 'Confirmar y pagar'}
+          {cargando ? 'Procesando...' : 'Confirmar cita'}
         </button>
       </form>
     </main>

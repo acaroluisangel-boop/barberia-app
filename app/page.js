@@ -16,7 +16,7 @@ export default function Home() {
 </h1>
     <p className="text-base sm:text-xl text-zinc-400 mb-10 max-w-md px-4">
     </p>
-    <div className="flex gap-4 flex-wrap justify-center">
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4">
       <Link href="/reservar"
         className="bg-yellow-400 text-black px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all hover:scale-105">
         Reservar cita →

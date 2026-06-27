@@ -48,7 +48,18 @@ export default function Reservar() {
         .single();
 
       if (errorCita) throw new Error('Error al crear cita: ' + errorCita.message);
-
+      
+const servicio = servicios.find(s => s.id === form.servicio_id);
+await fetch('/api/confirmacion', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nombre: form.nombre,
+    email: form.email,
+    servicio: servicio.nombre,
+    fecha: new Date(form.fecha_hora).toLocaleString('es-PE'),
+  }),
+});
       window.location.href = '/confirmacion';
 
     } catch (err) {

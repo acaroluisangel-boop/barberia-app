@@ -24,6 +24,10 @@ export default function Home() {
       <a href="#servicios"
         className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
         Ver servicios
+        <Link href="/galeria"
+  className="border border-zinc-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:border-yellow-400 hover:text-yellow-400 transition-all">
+  Ver cortes
+</Link>
       </a>
     </div>
   </div>

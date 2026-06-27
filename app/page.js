@@ -11,11 +11,10 @@ export default function Home() {
   <div className="absolute inset-0 bg-black/75" />
   <div className="relative z-10">
     <p className="text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-4">Barbería Premium</p>
-    <h1 className="text-7xl md:text-9xl font-black text-white mb-4 leading-none">
-      Blessed<span className="text-yellow-400">Barber</span>
-    </h1>
-    <p className="text-xl text-zinc-400 mb-10 max-w-md">
-      
+    <h1 className="text-4xl sm:text-6xl md:text-9xl font-black text-white mb-4 leading-none w-full text-center">
+  Blessed<span className="text-yellow-400">Barber</span>
+</h1>
+    <p className="text-base sm:text-xl text-zinc-400 mb-10 max-w-md px-4">
     </p>
     <div className="flex gap-4 flex-wrap justify-center">
       <Link href="/reservar"
@@ -156,7 +155,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-zinc-800 py-8 px-8 text-center text-zinc-500 text-sm">
-        <p className="text-2xl font-black text-white mb-2">Barber<span className="text-yellow-400">King</span></p>
+        <p className="text-2xl font-black text-white mb-2">Blessed<span className="text-yellow-400">Barber</span></p>
         <p>© 2026 BarberKing. Todos los derechos reservados.</p>
       </footer>
 
